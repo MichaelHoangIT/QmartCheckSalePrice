@@ -1,1 +1,2 @@
 # QmartCheckSalePrice
+Run npm install
