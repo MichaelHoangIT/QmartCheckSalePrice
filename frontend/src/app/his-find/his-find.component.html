@@ -1,0 +1,27 @@
+<p-table #dt [columns]="cols" [value]="salePriceLog" [responsive]="true" [rows]="10" [paginator]="true" [loading]="loading" sortMode="multiple">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+            </th>
+        </tr>
+        <tr>
+            <th *ngFor="let col of columns">
+                <input pInputText type="text" *ngIf="!col.field.toLowerCase().match('.*date.*')" (input)="dt.filter($event.target.value, col.field, 'contains')" style="width: 90%">
+                <p-calendar *ngIf="col.field.toLowerCase().match('.*date.*')" selectionMode="range" [readonlyInput]="true" dateFormat="dd/mm/yy" (onSelect)="dt.filter($event, 'DateInserted', 'my')"></p-calendar>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns" let-i="row">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{i}}
+                <span *ngIf="col.field.toLowerCase().match('.*date.*')">{{rowData[col.field] | date : 'dd/MM/yyyy'}}</span>
+                <span *ngIf="!col.field.toLowerCase().match('.*date.*')">{{rowData[col.field]}}</span>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        There are {{salePriceLog?.length}} record
+    </ng-template>
+</p-table>

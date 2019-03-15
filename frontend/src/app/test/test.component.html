@@ -1,0 +1,3 @@
+<h3 class="first">Basic</h3>
+<p-autoComplete [(ngModel)]="country" [suggestions]="filteredCountriesSingle" field="name" (completeMethod)="filterCountrySingle($event)" [size]="30" placeholder="Countries"></p-autoComplete>
+<span style="margin-left:10px">Country: {{country ? country.name||country : 'none'}}</span>

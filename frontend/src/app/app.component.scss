@@ -1,0 +1,10 @@
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-self: flex-end;
+    a {
+        display: block;
+        padding: 10px;
+    }
+}

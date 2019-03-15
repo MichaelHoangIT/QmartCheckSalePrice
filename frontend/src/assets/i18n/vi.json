@@ -1,0 +1,15 @@
+{
+    "label.find": "Tra cứu",
+    "label.his.find": "Lịch sử tra cứu",
+    "ch_code": "Mã CH",
+    "barcode": "Barcode",
+    "productInfo": "Thông tin sản phẩm",
+    "storeNo": "Mã CH",
+    "itemNo": "Mã SP",
+    "itemName": "Tên SP",
+    "nomalPrice": "Giá SP",
+    "redFlagPrice": "Giá KM",
+    "storePrice": "Giá chênh lệch",
+    "btn.search": "Tìm kiếm",
+    "btn.save": "Lưu"
+}

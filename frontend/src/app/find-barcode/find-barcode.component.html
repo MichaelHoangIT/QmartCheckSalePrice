@@ -1,0 +1,71 @@
+<p-toast></p-toast>
+<div class="ui-g text-center">
+    <div class="ui-g-12">
+        <img class="qmart-logo-find" alt="Qmart Logo" src="../assets/logo.png">
+    </div>
+</div>
+<div class="ui-g">
+    <div class="ui-xl-3 ui-xl-offset-3 ui-lg-3 ui-lg-offset-3 ui-md-5 ui-md-offset-1 ui-sm-offset-1 ui-sm-10">
+        <span class="ui-float-label">
+            <input #chCode type="text" pInputText id="float-chCode" (keyup.enter)="onEnter(chCode.value, barcode.value)" style="width: 100%" autofocus/>
+            <label for="float-chCode">{{'ch_code' | translate}}</label>
+        </span>
+    </div>
+    <div class="ui-xl-4 ui-lg-4 ui-md-5 ui-sm-offset-1 ui-sm-10">
+        <div class="autocomplete">
+            <span class="ui-float-label">
+                <input #barcode type="text" pInputText id="float-barcode" (keyup.enter)="onEnter(chCode.value, barcode.value)" (keyup)="onKeyUpBarcode(barcode.value)" style="width: 100%"/>
+                <label for="float-barcode">{{'barcode' | translate}}</label>
+            </span>
+            <div class="autocomplete-data to-bot" *ngIf="isFilter">
+                <div *ngFor="let bcode of barcodes" class="data" (click)="barcode.value = bcode; isFilter = false">
+                    <span>{{bcode}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui-g">
+    <div class="ui-g-12 text-center">
+        <button pButton type="button" label="{{'btn.search' | translate}}" icon="pi pi-search" iconPos="left" class="ui-button-raised ui-button-rounded" (click)="onEnter(chCode.value, barcode.value)"></button>
+    </div>
+</div>
+
+<div class="ui-g" *ngIf="show">
+    <div class="ui-g-12">
+        <hr class="style-two" />
+        <div class="ui-g">
+            <div class="ui-g-12 text-center">
+                <span style="font-size: 1.5em;">{{'productInfo' | translate}}</span>
+            </div>
+        </div>
+
+
+        <div *ngFor="let product of products" class="">
+            <div class="ui-g" *ngFor="let label of labels">
+                <div class="ui-md-6 text-right">
+                    {{label | translate}}:
+                </div>
+                <div class="ui-md-6 text-left">
+                    {{product[label]}}
+                </div>
+            </div>
+
+            <div class="ui-g">
+                <div class="ui-xl-4 ui-xl-offset-4 ui-lg-4 ui-lg-offset-4 ui-md-6 ui-md-offset-3 ui-sm-10 ui-sm-offset-1 ">
+                    <span class="ui-float-label">
+                        <input #price type="text" pInputText id="float-price" style="width: 100%" (keypress)="numberOnly($event)"/>
+                        <label for="float-price">{{'storePrice' | translate}}</label>
+                    </span>
+                </div>
+            </div>
+
+            <div class="ui-g">
+                <div class="ui-g-12 text-center">
+                    <button pButton type="button" label="{{'btn.save' | translate}}" icon="pi pi-save" iconPos="left" class="ui-button-raised ui-button-rounded" (click)="onSave(product, price.value)"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

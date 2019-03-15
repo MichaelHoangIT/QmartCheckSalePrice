@@ -1,0 +1,22 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "backend for q-mart",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "qmart"
+    ],
+    "author": "NhatNC",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.4",
+        "joi": "^13.1.2",
+        "msnodesqlv8": "^0.6.11",
+        "mssql": "^4.1.0",
+        "mysql": "^2.16.0"
+    }
+}
